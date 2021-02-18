@@ -6,3 +6,5 @@ el unico error que he encontrado es que antes de encriptar el mensaje tienes que
 
 Como usar:
 Al abrir el programa se abrira tambiel el cmd donde podras copiar la clave aleatoria para pegarlo en: "Selecionar clave", Textos encriptados, desencriptados...
+
+## EncV2 by XderElPro
