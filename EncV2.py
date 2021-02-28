@@ -5,7 +5,7 @@ abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 ventana = tk.Tk()
 ventana.title("Enc")
 ventana.config(bg="gray")
-ventana.geometry("800x800")
+ventana.geometry(f"800x800+{round(ventana.winfo_screenwidth() / 4)}+0")
 
 texto_uno = tk.Label(ventana, text="Escribe el texto aquí para encriptarlo", bg="gray")
 texto_uno.grid(row=0,column=0)
