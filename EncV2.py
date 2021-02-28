@@ -46,14 +46,14 @@ clave = tk.StringVar()
 entrada_tres = tk.Entry(ventana, textvariable=clave)
 entrada_tres.grid(row=7, column=2)
 
-opcion = tk.StringVar()
+opcion = tk.IntVar()
 radio_boton_uno = tk.Radiobutton(
-    text="Clave por defecto", variable=opcion, value="defecto", bg="gray")
+    text="Clave por defecto", variable=opcion, value=1, bg="gray")
 radio_boton_dos = tk.Radiobutton(
-    text="Selecionar clave", variable=opcion, value="selecionar", bg="gray")
+    text="Selecionar clave", variable=opcion, value=2, bg="gray")
 radio_boton_tres = tk.Radiobutton(
     text="Crear clave aleatoria", variable=opcion,
-    value="crear", command=lambda: c_clave(), bg="gray")
+    value=3, command=lambda: c_clave(), bg="gray")
 
 radio_boton_uno.grid(row=6, column=0)
 radio_boton_dos.grid(row=7, column=0)
@@ -63,10 +63,10 @@ opcion.get()
 
 def encriptar():
     print(opcion.get())
-    if opcion.get() == "defecto":
+    if opcion.get() == 1:
         abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
         print(abecedario)
-    elif opcion.get() == "selecionar":
+    elif opcion.get() == 2:
         abecedario = clave.get()
         print(clave.get())
 
@@ -97,10 +97,10 @@ boton_uno.grid(row=2, column=0)
 
 def desencriptar():
     print(opcion.get())
-    if opcion.get() == "defecto":
+    if opcion.get() == 1:
         abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
         print(abecedario)
-    elif opcion.get() == "selecionar":
+    elif opcion.get() == 2:
         abecedario = clave.get()
         print(clave.get())
     DENC = enc.get().upper()
