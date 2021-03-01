@@ -1,65 +1,84 @@
-from tkinter import *
+import tkinter as tk
 import random
+
 abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
-Ventana = Tk()
-Ventana.title("Enc")
-Ventana.config(bg="gray")
-Ventana.geometry("800x800")
+ventana = tk.Tk()
+ventana.title("Enc")
+ventana.config(bg="gray")
+ventana.geometry(f"800x800+{round(ventana.winfo_screenwidth() / 4)}+0")
+# ventana.geometry(f"450x200+{round(ventana.winfo_screenwidth() / 3)}+250")
 
-Texto1 = Label(Ventana, text="Escribe el texto aquí para encriptarlo", bg="gray")
-Texto1.grid(row=0,column=0)
+texto_uno = tk.Label(
+    ventana, text="Escribe el texto aquí para encriptarlo", bg="gray")
+texto_uno.grid(row=0, column=0)
 
-Espacio1 = Label(Ventana, text="        ",bg="gray")
-Espacio1.grid(row=0,column=1)
+espacio_uno = tk.Label(ventana, text=" " * 8, bg="gray")
+espacio_uno.grid(row=0, column=1)
 
-Texto2 = Label(Ventana, text="Escribe el texto aquí para desencriptarlo", bg="gray")
-Texto2.grid(row=0,column=2)
+texto_dos = tk.Label(
+    ventana, text="Escribe el texto aquí para desencriptarlo", bg="gray")
+texto_dos.grid(row=0, column=2)
 
-Enc = StringVar()
-Enc.get()
-Entrada1= Entry(Ventana,textvariable=Enc)
-Entrada1.grid(row=1,column=0)
+enc = tk.StringVar()
+enc.get()
 
-DEnc = StringVar()
-DEnc.get()
-Entrada2= Entry(Ventana,textvariable=DEnc)
-Entrada2.grid(row=1,column=2)
+entrada_uno = tk.Entry(ventana, textvariable=enc)
+entrada_uno.grid(row=1, column=0)
 
-Texto4 = Label(Ventana, text="", bg="gray")
-Texto4.place(x=280,y=50)
+de_nc = tk.StringVar()
+de_nc.get()
 
-def cClave():
+entrada_dos = tk.Entry(ventana, textvariable=de_nc)
+entrada_dos.grid(row=1, column=2)
+
+text_cuatro = tk.Label(ventana, text="", bg="gray")
+text_cuatro.place(x=280, y=50)
+
+
+def c_clave():
     abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-    print("".join(random.sample(abecedario,27)))
-    Texto5 = Label(Ventana, text=abecedario, bg="gray")
-    Texto5.grid(row=8,column=2)
+    print("".join(random.sample(abecedario, 27)))
+    Texto5 = tk.Label(ventana, text=abecedario, bg="gray")
+    Texto5.grid(row=8, column=2)
 
 
-Clave=StringVar()
-Entrada3 = Entry(Ventana,textvariable=Clave)
-Entrada3.grid(row=7,column=2)
+clave = tk.StringVar()
+entrada_tres = tk.Entry(ventana, textvariable=clave)
+entrada_tres.grid(row=7, column=2)
 
-opcion = StringVar()
-radioBoton1 = Radiobutton(text="Clave por defecto",variable=opcion,value="defecto",bg="gray")
-radioBoton2 = Radiobutton(text="Selecionar clave",variable=opcion,value="selecionar",bg="gray")
-radioBoton3 = Radiobutton(text="Crear clave aleatoria",variable=opcion,value="crear",command=lambda: cClave(),bg="gray")
-radioBoton1.grid(row=6,column=0)
-radioBoton2.grid(row=7,column=0)
-radioBoton3.grid(row=8,column=0)
+opcion = tk.IntVar()
+opcion.set(1)
+
+radio_boton_uno = tk.Radiobutton(
+    ventana, text="Clave por defecto", variable=opcion,
+    value=1, bg="gray", activebackground="gray")
+
+radio_boton_dos = tk.Radiobutton(
+    ventana, text="Selecionar clave", variable=opcion,
+    value=2, bg="gray", activebackground="gray")
+
+radio_boton_tres = tk.Radiobutton(
+    ventana, text="Crear clave aleatoria", variable=opcion,
+    value=3, bg="gray", activebackground="gray", command=c_clave)
+
+radio_boton_uno.grid(row=6, column=0)
+radio_boton_dos.grid(row=7, column=0)
+radio_boton_tres.grid(row=8, column=0)
 opcion.get()
 
-def Encriptar():
+
+def encriptar():
     print(opcion.get())
-    if opcion.get() == "defecto":
+    if opcion.get() == 1:
         abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
         print(abecedario)
-    elif opcion.get() == "selecionar":
-        abecedario = Clave.get()
-        print(Clave.get())
+    elif opcion.get() == 2:
+        abecedario = clave.get()
+        print(clave.get())
 
-    ENC = Enc.get().upper()
-    ENC2 = []
+    ENC = enc.get().upper()
+    enc_dos = []
     n = 0
     for i in ENC:
         if abecedario.find(i) != -1:
@@ -67,30 +86,32 @@ def Encriptar():
             while ni > 26:
                 ni = ni-27
             print(ni)
-            ENC2.append(abecedario[ni])
+            enc_dos.append(abecedario[ni])
             n = n + 1
         else:
-            ENC2.append(i)
-    print(ENC2)
+            enc_dos.append(i)
+    print(enc_dos)
 
-    TENC = "".join(ENC2)
-    Texto3 = Label(Ventana, text=TENC, bg="gray")
-    Texto3.grid(row=3,column=0)
+    TENC = "".join(enc_dos)
+    texto_tres = tk.Label(ventana, text=TENC, bg="gray")
+    texto_tres.grid(row=3, column=0)
     print(TENC)
 
-Boton1 = Button(Ventana, text="Encriptar", command=lambda:Encriptar())
-Boton1.grid(row=2,column=0)
 
-def Desencriptar():
+boton_uno = tk.Button(ventana, text="Encriptar", command=encriptar)
+boton_uno.grid(row=2, column=0)
+
+
+def desencriptar():
     print(opcion.get())
-    if opcion.get() == "defecto":
+    if opcion.get() == 1:
         abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
         print(abecedario)
-    elif opcion.get() == "selecionar":
-        abecedario = Clave.get()
-        print(Clave.get())
-    DENC = Enc.get().upper()
-    DENC = DEnc.get().upper()
+    elif opcion.get() == 2:
+        abecedario = clave.get()
+        print(clave.get())
+    DENC = enc.get().upper()
+    DENC = de_nc.get().upper()
     DENC2 = ""
     n = 0
     for i in DENC:
@@ -106,11 +127,12 @@ def Desencriptar():
     print(DENC2)
 
     TDENC = "".join(DENC2)
-    Texto4 = Label(Ventana, text=TDENC, bg="gray")
-    Texto4.grid(row=3,column=2)
+    text_cuatro = tk.Label(ventana, text=TDENC, bg="gray")
+    text_cuatro.grid(row=3, column=2)
     print(TDENC)
 
-Boton1 = Button(Ventana, text="Desencriptar", command=lambda:Desencriptar())
-Boton1.grid(row=2,column=2)
 
-Ventana.mainloop()
+boton_uno = tk.Button(ventana, text="Desencriptar", command=desencriptar)
+boton_uno.grid(row=2, column=2)
+
+ventana.mainloop()
