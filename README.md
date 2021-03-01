@@ -1,10 +1,12 @@
 # EncV2
-esta es la version funcional de Enc mi programa de encriptación puedes abrir EncV2.py si tienes el interprete de python 3 con tkinter instalado preo si no lo tienes y usas Windows puedes abrir la carpeta EncV2 y aceder a EncV2.exe es muy inportante que no lo saques fuera de la carpeta si quieres aceder a EncV2.exe desde otra carpeta crea un aceso directo
+Esta es la versión funcional de “Enc”, mi programa de encriptación.
 
-Bugs:
-el unico error que he encontrado es que antes de encriptar el mensaje tienes que selecionar la categoría que quieres usar Recomendado: "Clave por defecto"
+Puedes abrir “EncV2.py” si tienes el intérprete de Python 3 con Tkinter instalado, pero si no lo tienes y usas Windows puedes abrir la carpeta EncV2 y acceder a “EncV2.exe”. Es muy importante que no lo saques fuera de la carpeta si quieres acceder a EncV2.exe desde otra carpeta crea un acceso directo
 
-Como usar:
-Al abrir el programa se abrira tambiel el cmd donde podras copiar la clave aleatoria para pegarlo en: "Selecionar clave", Textos encriptados, desencriptados...
+## Bugs:
+El único error que he encontrado es que antes de encriptar el mensaje tienes que seleccionar la categoría que quieres usar, queriendo tener por defecto: "Clave por defecto".
 
-## EncV2 by XderElPro
+## Como usar:
+Al abrir el programa se abrirá también la terminal, donde podrás copiar la clave aleatoria para pegarlo en: "Seleccionar clave", Textos encriptados o desencriptados...
+
+## EncV2 por [XderElPro](https://github.com/XderElPro)
