@@ -47,13 +47,17 @@ entrada_tres = tk.Entry(ventana, textvariable=clave)
 entrada_tres.grid(row=7, column=2)
 
 opcion = tk.IntVar()
+opcion.set(1)
+
 radio_boton_uno = tk.Radiobutton(
-    text="Clave por defecto", variable=opcion, value=1, bg="gray")
+    text="Clave por defecto", variable=opcion, value=1,
+    bg="gray", activebackground="gray")
 radio_boton_dos = tk.Radiobutton(
-    text="Selecionar clave", variable=opcion, value=2, bg="gray")
+    text="Selecionar clave", variable=opcion, value=2,
+    bg="gray", activebackground="gray")
 radio_boton_tres = tk.Radiobutton(
     text="Crear clave aleatoria", variable=opcion,
-    value=3, command=lambda: c_clave(), bg="gray")
+    value=3, bg="gray", activebackground="gray", command=c_clave)
 
 radio_boton_uno.grid(row=6, column=0)
 radio_boton_dos.grid(row=7, column=0)
