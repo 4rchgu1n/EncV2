@@ -16,9 +16,9 @@ texto_uno.grid(row=0, column=0)
 espacio_uno = tk.Label(ventana, text=" " * 8, bg="gray")
 espacio_uno.grid(row=0, column=1)
 
-texto_2 = tk.Label(
+texto_dos = tk.Label(
     ventana, text="Escribe el texto aquí para desencriptarlo", bg="gray")
-texto_2.grid(row=0, column=2)
+texto_dos.grid(row=0, column=2)
 
 enc = tk.StringVar()
 enc.get()
